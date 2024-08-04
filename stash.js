@@ -3,16 +3,13 @@ desc: "检测 Spotify 歌词分享的图片并发送通知"
 author: "Your Name"
 category: "Utility"
 
-http:
-  mitm:
-    - "storage.googleapis.com"
-
-  script:
-    - match: ^https?://storage\.googleapis\.com/.*$
-      name: spotify_lyrics_share_detector
-      type: response
-      require-body: true
-      argument:
+tiles:
+  - name: spotify_lyrics_share_detector
+    interval: 600
+    title: 'Spotify Lyrics Share'
+    content: '等待检测到的图片'
+    icon: 'photo'
+    backgroundColor: '#663399'
 
 script-providers:
   spotify_lyrics_share_detector:
