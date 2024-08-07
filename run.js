@@ -8,7 +8,7 @@ http:
     - "storage.googleapis.com"  # 替换为您想要检测的域名
 
   script:
-    - match: ^https?://.*\.example\.com/.*$  # 替换为您想要检测的域名
+    - match: ^https?:\/\/storage\.googleapis\.com\/.*$   # 替换为您想要检测的域名
       name: extract_response_and_notify
       type: response
       require-body: true
@@ -16,5 +16,5 @@ http:
 
 script-providers:
   extract_response_and_notify:
-    url: https://your-script-url/extract_response_and_notify.js
+    url: https://raw.githubusercontent.com/HenTaku0/tmp/main/walk.js
     interval: 86400
