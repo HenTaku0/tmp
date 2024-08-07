@@ -9,7 +9,7 @@ http:
 
   script:
     - match: ^https?://storage\.googleapis\.com/.*$
-      name: detect_and_notify_image
+      name: detect_and_redirect_image
       type: response
       require-body: false
       argument:
