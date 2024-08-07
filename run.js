@@ -1,20 +1,5 @@
-name: "🌐 图片检测器"
-desc: "检测 storage.googleapis.com 的图片并发送通知"
-author: "Your Name"
-category: "Utility"
+console.log("执行简单通知脚本");
 
-http:
-  mitm:
-    - "storage.googleapis.com"
+$notification.post("测试通知", "这是一个测试通知", "点击查看", { "open-url": "https://example.com" });
 
-  script:
-    - match: ^https?://storage\.googleapis\.com/.*$
-      name: detect_and_redirect_image
-      type: response
-      require-body: false
-
-      
-script-providers:
-   detect_and_redirect_image:
-     url: https://raw.githubusercontent.com/HenTaku0/tmp/main/walk.js
-     interval: 86400
+$done({});
