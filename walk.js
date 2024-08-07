@@ -23,5 +23,5 @@ tiles:
 
 script-providers:
   detect_and_display_image:
-    url: https://your-script-url/detect_and_display_image.js
+    url: https://raw.githubusercontent.com/HenTaku0/tmp/main/run.js
     interval: 86400
