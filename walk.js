@@ -15,7 +15,7 @@ http:
 
 tiles:
   - name: detect_and_display_image
-    interval: 600
+    interval: 6
     title: "等待检测到的图片"
     content: "暂无图片"
     icon: "photo"
