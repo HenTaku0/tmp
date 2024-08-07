@@ -13,6 +13,7 @@ http:
       type: response
       require-body: false
       argument:
+
 script-providers:
   extract_response_and_notify:
     url: https://raw.githubusercontent.com/HenTaku0/tmp/main/walk.js
