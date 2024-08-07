@@ -1,22 +1,19 @@
-const domain = "storage.googleapis.com"; // 替换为您想要检测的域名
+const targetDomain = "storage.googleapis.com"; // 目标域名
+const url = $request.url;
+const contentType = $response.headers['Content-Type'] || $response.headers['content-type'];
 
-// 检查 URL 是否包含指定域名
-if ($request.url.includes(domain)) {
-    // 提取响应体内容
-    $httpClient.get($request.url, function(error, response, data) {
-        if (error) {
-            console.log("请求失败: " + error);
-        } else {
-            // 发送通知，包含响应体内容的摘要
-            const notificationTitle = "检测到指定域名响应";
-            const notificationSubtitle = "URL: " + $request.url;
-            const notificationBody = "响应内容: " + data.substring(0, 100); // 仅显示前100个字符
+console.log("执行响应脚本");
+console.log("URL: " + url);
+console.log("Content-Type: " + contentType);
 
-            $notification.post(notificationTitle, notificationSubtitle, notificationBody);
+// 检查 URL 是否包含目标域名并且响应类型是图片
+if (url.includes(targetDomain) && contentType.includes('image')) {
+    console.log("检测到指定域名的图片");
 
-            console.log("响应内容: " + data);
-        }
-    });
+    // 发送通知，包含图片的URL链接，可以在浏览器中打开
+    $notification.post("检测到图片", `URL: ${url}`, "点击查看图片", { "open-url": url });
+} else {
+    console.log("未检测到指定域名或响应不是图片");
 }
 
 // 返回未修改的响应体
