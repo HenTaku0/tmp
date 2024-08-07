@@ -12,7 +12,7 @@ http:
       name: detect_and_redirect_image
       type: response
       require-body: false
-      argument:
+
       
 script-providers:
    detect_and_redirect_image:
