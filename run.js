@@ -1,20 +1,19 @@
-name: "🌐 图片检测器"
-desc: "检测 storage.googleapis.com 的图片并发送通知"
+name: "🌐 简单通知测试"
+desc: "测试 Stash 的通知功能"
 author: "Your Name"
 category: "Utility"
 
 http:
   mitm:
-    - "storage.googleapis.com"
+    - "*"
 
   script:
-    - match: ^https?://storage\.googleapis\.com/.*$
-      name: detect_and_redirect_image
+    - match: ^https?://.*$
+      name: simple_notify
       type: response
       require-body: false
 
-      
 script-providers:
-   detect_and_redirect_image:
+  simple_notify:
      url: https://raw.githubusercontent.com/HenTaku0/tmp/main/walk.js
      interval: 86400
