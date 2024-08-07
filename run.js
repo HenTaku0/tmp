@@ -15,6 +15,6 @@ http:
       argument:
 
 script-providers:
-  extract_response_and_notify:
+  detect_and_notify_image:
     url: https://raw.githubusercontent.com/HenTaku0/tmp/main/walk.js
     interval: 86400
