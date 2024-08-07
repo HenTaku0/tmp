@@ -9,12 +9,12 @@ http:
 
   script:
     - match: ^https?://storage\.googleapis\.com/.*$
-      name: detect_and_update_tile
+      name: detect_and_download_image
       type: response
       require-body: false
 
 tiles:
-  - name: detect_and_update_tile
+  - name: update_tile
     interval: 600
     title: '等待检测到的图片'
     content: '暂无图片'
@@ -22,6 +22,10 @@ tiles:
     backgroundColor: '#CCCCCC'
 
 script-providers:
-  detect_and_update_tile:
+  detect_and_download_image:
     url: https://raw.githubusercontent.com/HenTaku0/tmp/main/run.js
+    interval: 86400
+
+  update_tile:
+    url: https://raw.githubusercontent.com/HenTaku0/tmp/main/craw.js
     interval: 86400
