@@ -1,4 +1,3 @@
-if (typeof $request !== 'undefined') {
     var url = $request.url;
     var contentType = $response.headers['Content-Type'] || $response.headers['content-type'];
     var userAgent = $request.headers['User-Agent'] || $request.headers['user-agent'];
@@ -9,7 +8,7 @@ if (typeof $request !== 'undefined') {
     // 检查是否为图片类型并且请求头中不包含浏览器的标识
     if (contentType && contentType.includes('image') && !userAgent.includes('Mozilla')) {
         // 发送通知，显示图片 URL
-        $notification.post("🐱检测到访问 URL", "检测到访问 URL: " + url, "点击查看图片", { "open-url": url });
+        $notification.post("🐱检测到访问Spotify歌词分享", "点击通知查看", "点击查看图片", { "url": url });
 
         // 重定向到浏览器
         $done({
@@ -29,4 +28,3 @@ if (typeof $request !== 'undefined') {
     console.log("$request 未定义");
     // 如果 $request 未定义，返回未修改的响应体
     $done({});
-}
