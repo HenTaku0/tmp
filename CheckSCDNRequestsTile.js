@@ -3,7 +3,7 @@ var previousUrls = JSON.parse($persistentStore.read("spotifyImageList") || "[]")
 if (previousUrls.length > 0) {
     var latestImageUrl = previousUrls[previousUrls.length - 1]; // 获取最新的图片 URL
     $done({
-        title: '最新 S potify 图片',
+        title: '最新 Spotify 图片',
         content: '点击查看图片',
         icon: latestImageUrl,
         backgroundColor: '#1DB954',
