@@ -15,7 +15,7 @@ http:
 
 tiles:
   - name: CheckSCDNRequestsTile
-    interval: 600
+    interval: 60
     title: 'Spotify 图片'
     content: '等待图片加载'
     icon: 'photo'
