@@ -4,8 +4,8 @@ console.log("读取到的最新图片 URL: " + latestImageUrl); // 输出读取�
 
 if (latestImageUrl) {
     $done({
-        title: '最新 Spotify 图片',
-        content: '点击查看图片',
+        title: '最新聆听的 Spotify 专辑',
+        content: latestImageUrl,
         icon: latestImageUrl,
         backgroundColor: '#1DB954',
         url: latestImageUrl
