@@ -11,7 +11,7 @@ if (existingImages.length > 0) {
 } else {
     $done({
         title: 'Spotify 图片',
-        content: '没有新图片',
+        content: '没有 新图片',
         icon: 'photo',
         backgroundColor: '#1DB954'
     });
