@@ -2,15 +2,22 @@ var url = $request.url;
 var contentType = $response.headers['Content-Type'] || $response.headers['content-type'];
 var userAgent = $request.headers['User-Agent'] || $request.headers['user-agent'];
 
-console.log("检测到的 URL: " + url); // 输出检测到的 URL
-console.log("Content-Type: " + contentType); // 输出 Content-Type
-console.log("User-Agent: " + userAgent); // 输出 User-Agent
+// 读取已保存的最新图片 URL
+var latestSavedUrl = $persistentStore.read("latestSpotifyImage") || "";
+
+console.log("检测到的 URL: " + url);
+console.log("当前保存的最新图片 URL: " + latestSavedUrl);
 
 if (contentType.includes('image') && !userAgent.includes('Mozilla')) {
-    console.log("检测到图片 URL: " + url); // 确认检测到图片
-    $persistentStore.write(url, "latestSpotifyImage");
-    $notification.post("🐱检测到Spotify图片🐱", `URL: ${url}`, "图片已保存到Tile");
+    // 如果当前检测到的 URL 与保存的不一致，则更新保存的 URL
+    if (url !== latestSavedUrl) {
+        console.log("检测到新图片 URL: " + url);
+        $persistentStore.write(url, "latestSpotifyImage");
+        $notify("🐱检测到Spotify图片🐱", `URL: ${url}`, "点击查看图片", {"open-url": url});
+    } else {
+        console.log("图片 URL 未更新");
+    }
 } else {
-    console.log("未检测到图片或请求来自浏览器"); // 记录未检测到图片的情况
+    console.log("未检测到图片或请求来自浏览器");
 }
 $done({});
