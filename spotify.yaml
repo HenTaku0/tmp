@@ -1,0 +1,32 @@
+name: "🐱检测Spotify最新聆听的专辑(需在ios桌面添加Spotify磁贴)"
+desc: "检测访问 i.scdn.co 的请求并将图片放到 Tile 上"
+author: "HenTaku"
+homepage: "https://github.com/HenTaku0/tmp"
+icon: "https://raw.githubusercontent.com/googlefonts/noto-emoji/main/png/512/emoji_u1f408.png"
+
+http:
+  mitm:
+    - "i.scdn.co"
+  script:
+    - match: ^https?:\/\/i\.scdn\.co\/.*
+      name: CheckSCDNRequests
+      type: response
+      require-body: true
+
+tiles:
+  - name: CheckSCDNRequestsTile
+    interval: 600
+    title: 'Spotify 图片'
+    content: '等待图片加载'
+    icon: 'photo'
+    backgroundColor: '#1DB954'
+
+script-providers:
+  CheckSCDNRequests:
+    url: https://raw.githubusercontent.com/HenTaku0/tmp/main/CheckSCDNRequests.js
+    interval: 86400
+
+  CheckSCDNRequestsTile:
+    url: https://raw.githubusercontent.com/HenTaku0/tmp/main/CheckSCDNRequestsTile.js
+    interval: 86400
+
