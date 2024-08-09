@@ -1,17 +1,13 @@
-var latestImageUrl = $persistentStore.read("latestSpotifyImage");
-
-console.log("读取到的最新图片 URL: " + latestImageUrl); // 输出读取到的 URL
-
-if (latestImageUrl) {
-    // 更新 Tile 内容并删除持久化存储中的 URL
+var existingImages = JSON.parse($persistentStore.read("spotifyImageList") || "[]");
+if (existingImages.length > 0) {
+    let latestImageUrl = existingImages[existingImages.length - 1]; // 显示最后一张图片
     $done({
-        title: '最近聆听的专辑',
+        title: '最新 Spotify 图片',
         content: '点击查看图片',
         icon: latestImageUrl,
         backgroundColor: '#1DB954',
         url: latestImageUrl
     });
-    $persistentStore.write("", "latestSpotifyImage"); // 删除持久化存储中的 URL
 } else {
     $done({
         title: 'Spotify 图片',
