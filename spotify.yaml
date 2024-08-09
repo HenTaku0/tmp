@@ -15,7 +15,7 @@ http:
 
 tiles:
   - name: CheckSCDNRequestsTile
-    interval: 60
+    interval: 600
     title: 'Spotify 图片'
     content: '等待图片加载'
     icon: 'photo'
@@ -24,9 +24,9 @@ tiles:
 script-providers:
   CheckSCDNRequests:
     url: https://raw.githubusercontent.com/HenTaku0/tmp/main/CheckSCDNRequests.js
-    interval: 10
+    interval: 86400
 
   CheckSCDNRequestsTile:
     url: https://raw.githubusercontent.com/HenTaku0/tmp/main/CheckSCDNRequestsTile.js
-    interval: 10
+    interval: 86400
 
