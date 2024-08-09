@@ -24,9 +24,9 @@ tiles:
 script-providers:
   CheckSCDNRequests:
     url: https://raw.githubusercontent.com/HenTaku0/tmp/main/CheckSCDNRequests.js
-    interval: 86400
+    interval: 10
 
   CheckSCDNRequestsTile:
     url: https://raw.githubusercontent.com/HenTaku0/tmp/main/CheckSCDNRequestsTile.js
-    interval: 86400
+    interval: 10
 
