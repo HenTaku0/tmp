@@ -10,13 +10,10 @@ console.log("当前保存的最新图片 URL: " + latestSavedUrl);
 
 if (contentType.includes('image') && !userAgent.includes('Mozilla')) {
     // 如果当前检测到的 URL 与保存的不一致，则更新保存的 URL
-    if (url !== latestSavedUrl) {
+    //if (url !== latestSavedUrl) {
         console.log("检测到新图片 URL: " + url);
         $persistentStore.write(url, "latestSpotifyImage");
-        $notify("🐱检测到Spotify图片🐱", `URL: ${url}`, "点击查看图片", {"open-url": url});
-    } else {
-        console.log("图片 URL 未更新");
-    }
+
 } else {
     console.log("未检测到图片或请求来自浏览器");
 }
