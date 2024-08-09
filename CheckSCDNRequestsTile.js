@@ -1,7 +1,8 @@
-var previousUrls = JSON.parse($persistentStore.read("spotifyImageList") || "[]");
+var latestImageUrl = $persistentStore.read("latestSpotifyImage");
 
-if (previousUrls.length > 0) {
-    var latestImageUrl = previousUrls[previousUrls.length - 1]; // 获取最新的图片 URL
+console.log("读取到的最新图片 URL: " + latestImageUrl); // 输出读取到的 URL
+
+if (latestImageUrl) {
     $done({
         title: '最新 Spotify 图片',
         content: '点击查看图片',
